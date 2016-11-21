@@ -40,9 +40,9 @@ void RandomizeContainer(std::vector<int>& container)
 
 void PrintContainerContents(const std::vector<int>& container)
 {
-	for each (int i in container)
+	for (int i = 0; i < container.size(); ++i)
 	{
-		printf("%i,", i);
+		printf("%i,", container[i]);
 	}
 
 	printf("\n\n");
