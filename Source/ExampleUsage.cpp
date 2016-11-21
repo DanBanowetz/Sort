@@ -27,6 +27,7 @@
 #include <functional>
 #include <vector>
 #include <algorithm>
+#include <stdio.h>
 
 bool AscendingOrderPredicate(int a, int b)
 {
