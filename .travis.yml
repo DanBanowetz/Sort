@@ -7,5 +7,5 @@ before_script:
   - cmake ..
 script:
   - make
-  - cd ../Binaries
+  - cd ../Binaries/Bin
   - ./Sort
