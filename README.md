@@ -1,3 +1,3 @@
 # Sort
 
-Sorting library coming soon!
+Easy to use sorting library. More features coming soon!
