@@ -1,4 +1,5 @@
-# Sort
+# Sort [![Build status](https://ci.appveyor.com/api/projects/status/bpes5f8mv2h0d4ue?svg=true)](https://ci.appveyor.com/project/dadamitskiy/sort)
+
 
 Lightweight Sorting Library
 
