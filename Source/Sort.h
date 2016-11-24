@@ -25,7 +25,7 @@
 #pragma once
 
 #define DA_SORT_MAJOR_VERSION 1
-#define DA_SORT_MINOR_VERSION 0
+#define DA_SORT_MINOR_VERSION 1
 
 namespace DA
 {
@@ -33,10 +33,10 @@ namespace Sort
 {
 
 /**
- * \brief Swaps two items of generic type without needing a temporary variable.
+ * @brief Swaps two items of generic type without needing a temporary variable.
  *
- * \param a - First item
- * \param b - Second item
+ * @param a - First item
+ * @param b - Second item
  */
 template<typename Type>
 inline void XorSwap(Type& a, Type& b)
@@ -64,12 +64,12 @@ inline void Swap(Type& a, Type& b)
 }
 
 /**
- * \brief Bubble Sort iterates over a container swapping two items as it iterates left to right. Iteration repeats
- *		  until a pass is made without needing to swap anything. Best case performace is O(n), worst case O(n^2).
+ * @brief Bubble Sort iterates over a container swapping two items as it iterates left to right. Iteration repeats
+ *        until a pass is made without needing to swap anything. Best case performace is O(n), worst case O(n^2).
  *
- * \param container - Reference to the container to sort
- * \param containerSize	- Size of the container
- * \param predicate - Predicate to sort with
+ * @param container - Reference to the container to sort.
+ * @param containerSize	- Size of the container.
+ * @param predicate - Predicate to sort with.
  */
 template<typename Container, typename Predicate>
 inline void BubbleSort(Container& container, const unsigned int containerSize, const Predicate& predicate)
@@ -93,12 +93,12 @@ inline void BubbleSort(Container& container, const unsigned int containerSize, c
 }
 
 /**
- * \brief Insertion Sort iterates over a container left to right, grabbing the next element and inserting it into the
- *		  correctly sorted position of everything to the left of it. Best case performance is O(n), worst case O(n^2).
+ * @brief Insertion Sort iterates over a container left to right, grabbing the next element and inserting it into the
+ *        correctly sorted position of everything to the left of it. Best case performance is O(n), worst case O(n^2).
  *
- * \param container - Reference to the container to sort
- * \param containerSize	- Size of the container
- * \param predicate - Predicate to sort with
+ * @param container - Reference to the container to sort.
+ * @param containerSize	- Size of the container.
+ * @param predicate - Predicate to sort with.
  */
 template<typename Container, typename Predicate>
 inline void InsertionSort(Container& container, const unsigned int containerSize, const Predicate& predicate)
@@ -113,13 +113,13 @@ inline void InsertionSort(Container& container, const unsigned int containerSize
 }
 
 /**
- * \brief Selection Sort iterates over the container from left to right subdividing into the left sorted list and right
+ * @brief Selection Sort iterates over the container from left to right subdividing into the left sorted list and right
  *        unsorted list. During traversal, the correct index (min or max) is found and swapped for the correct position
- *		  in the sorted division. Best case performance is O(n^2), worst cast O(n^2).
+ *        in the sorted division. Best case performance is O(n^2), worst cast O(n^2).
  *
- * \param container - Reference to the container to sort
- * \param containerSize	- Size of the container
- * \param predicate - Predicate to sort with
+ * @param container - Reference to the container to sort.
+ * @param containerSize	- Size of the container.
+ * @param predicate - Predicate to sort with.
  */
 template<typename Container, typename Predicate>
 inline void SelectionSort(Container& container, const unsigned int containerSize, const Predicate& predicate)
