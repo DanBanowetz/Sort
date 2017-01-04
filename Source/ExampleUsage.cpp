@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
 	printf("Unsorted container:\n");
 	PrintContainerContents(container);
 	
-	DA::Sort::QuickSort<std::vector<int>,int>(container, [](int a, int b) { return a >= b; }, 0, containerSize-1);
+	DA::Sort::QuickSort<std::vector<int>,unsigned int>(container, [](int a, int b) { return a <= b; }, 0, containerSize-1);
 
 	printf("Sorted container via Quick Sort:\n");
 	PrintContainerContents(container);

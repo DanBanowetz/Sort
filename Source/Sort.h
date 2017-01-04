@@ -171,7 +171,7 @@ inline void SelectionSort(Container& container, const unsigned int containerSize
 * @param End - The position in the container to end at.
 */
 template<typename Container, typename Type, typename Predicate>
-Type partition(Container& container, const Predicate& predicate, const unsigned int start, const unsigned int end)
+Type partition(Container& container, const Predicate& predicate, const int start, const int end)
 {
 	Type pivotValue = container[end];
 	Type pivotPosition = start-1;
@@ -197,7 +197,7 @@ Type partition(Container& container, const Predicate& predicate, const unsigned 
 * @param End - The position in the container to end at.
 */
 template<typename Container, typename Type, typename Predicate>
-inline void QuickSort(Container& container, const Predicate& predicate, const unsigned int start, const unsigned int end)
+inline void QuickSort(Container& container, const Predicate& predicate, const  int start, const  int end)
 {
 	if (start <end)
 	{
