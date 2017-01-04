@@ -69,7 +69,7 @@ inline void Swap(Type& a, Type& b)
 * @parama containerSize - Size of the container.
 */
 template<typename Type, typename Container>
-inline Type getMax(Container& container, const unsigned int containerSize)
+Type getMax(Container& container, const unsigned int containerSize)
 {
 	Type max = container[0];
 	for (int i = 1; i < containerSize; i++)
@@ -170,8 +170,8 @@ inline void SelectionSort(Container& container, const unsigned int containerSize
 * @param Start - the position in the container to start at.
 * @param End - The position in the container to end at.
 */
-template<typname Container, typename Predicate, typename Type>
-inline Type partition(Container& container, const Predicate& predicate, const unsigned int start, const unsigned int end)
+template<typename Container, typename Predicate, typename Type>
+Type partition(Container& container, const Predicate& predicate, const unsigned int start, const unsigned int end)
 {
 	Type pivotValue = container[start];
 	Type pivotPosition = start;
