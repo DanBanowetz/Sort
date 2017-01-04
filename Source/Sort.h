@@ -68,7 +68,7 @@ inline void Swap(Type& a, Type& b)
 * @param container - Reference to the continer to find the largest value.
 * @parama containerSize - Size of the container.
 */
-template<typename Type, typename Container>
+template<typename Container, typename Type>
 Type getMax(Container& container, const unsigned int containerSize)
 {
 	Type max = container[0];
@@ -170,21 +170,22 @@ inline void SelectionSort(Container& container, const unsigned int containerSize
 * @param Start - the position in the container to start at.
 * @param End - The position in the container to end at.
 */
-template<typename Container, typename Predicate, typename Type>
+template<typename Container, typename Type, typename Predicate>
 Type partition(Container& container, const Predicate& predicate, const unsigned int start, const unsigned int end)
 {
-	Type pivotValue = container[start];
-	Type pivotPosition = start;
-	for (int pos = start + 1; pos <= end; pos++)
+	Type pivotValue = container[end];
+	Type pivotPosition = start-1;
+	for (int pos = start ; pos <= end-1; pos++)
 	{
 		if (predicate(container[pos], pivotValue))
 		{
-			Swap(container[pivotPosition + 1], container[pos]);
-			Swap(container[pivotPosition], container[pivotPosition + 1]);
 			pivotPosition++;
+			Swap(container[pivotPosition ], container[pos]);
 		}
 	}
-	return pivotPosition;
+	Swap(container[pivotPosition+1], container[end]);
+
+	return (pivotPosition+1);
 }
 /**
 * @brief Uses the Quicksort Algorith to sort the container from start to end based on the provided predicate.
@@ -195,17 +196,17 @@ Type partition(Container& container, const Predicate& predicate, const unsigned 
 * @param Start - the position in the container to start at.
 * @param End - The position in the container to end at.
 */
-template<typename Container, typename Predicate, typename Type>
+template<typename Container, typename Type, typename Predicate>
 inline void QuickSort(Container& container, const Predicate& predicate, const unsigned int start, const unsigned int end)
 {
-	if (predicate(start, end))
+	if (start <end)
 	{
-		Type p = partition(container, start, end);
+		Type p = partition<Container, Type>(container,predicate, start, end);
 
 
-		quickSort(container, start, p - 1);
+		QuickSort<Container,Type>(container,predicate, start, p - 1);
 
-		quickSort(container, p + 1, end);
+		QuickSort<Container, Type>(container,predicate, p + 1, end);
 	}
 
 }
@@ -221,7 +222,7 @@ inline void QuickSort(Container& container, const Predicate& predicate, const un
 template<typename Container, typename Type>
 inline void CountSort(Container& container, const unsigned int containerSize, const unsigned int exp)
 {
-	Type output[containerSize];
+	Type* output= new Type[containerSize];
 	Type i, count[10] = { 0 };
 	for (i = 0; i < containerSize; i++)
 	{
@@ -231,7 +232,7 @@ inline void CountSort(Container& container, const unsigned int containerSize, co
 	{
 		count[i] += count[i - 1];
 	}
-	for (i = n - 1; i >= 0; i--)
+	for (i = containerSize - 1; i >= 0; i--)
 	{
 		output[count[(container[i] / exp) % 10] - 1] = container[i];
 		count[(container[i] / exp) % 10]--;
@@ -240,6 +241,7 @@ inline void CountSort(Container& container, const unsigned int containerSize, co
 	{
 		container[i] = output[i];
 	}
+	delete[] output;
 }
 
 /*
@@ -249,14 +251,14 @@ inline void CountSort(Container& container, const unsigned int containerSize, co
 * @param container - Reference to the container to sort.
 * @param containerSize - Size of the container to sort.
 */
-template<typename Container, typename Predicate, typename Type>
+template<typename Container, typename Type>
 inline void RadixSort(Container& container, const unsigned int containerSize)
 {
-	Type m = getMax(container, containerSize);
+	Type m = getMax<Container,Type>(container, containerSize);
 
 	for (int exp = 1; m / exp>0; exp *= 10)
 	{
-		countSort(container, containerSize, exp);
+		CountSort<Container,Type>(container, containerSize, exp);
 	}
 }
 

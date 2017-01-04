@@ -96,5 +96,23 @@ int main(int argc, char* argv[])
 	printf("Sorted container via selection sort:\n");
 	PrintContainerContents(container);
 	
+	//Sort with Quick sort
+	DA::Sort::RadixSort<std::vector<int>,int>(container, containerSize);
+
+	printf("Sorted container via Radix sort:\n");
+	PrintContainerContents(container);
+	RandomizeContainer(container);
+	printf("Unsorted container:\n");
+	PrintContainerContents(container);
+	
+	DA::Sort::QuickSort<std::vector<int>,int>(container, [](int a, int b) { return a >= b; }, 0, containerSize-1);
+
+	printf("Sorted container via Quick Sort:\n");
+	PrintContainerContents(container);
+	RandomizeContainer(container);
+	printf("Unsorted container: \n");
+	PrintContainerContents(container);
+
+	system("Pause");
 	return 0;
 }
