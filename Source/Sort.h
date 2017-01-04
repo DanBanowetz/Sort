@@ -72,7 +72,7 @@ template<typename Type, typename Container>
 Type getMax(Container& container, const unsigned int containerSize)
 {
 	Type max = container[0];
-	for (int i = 1; i < containerSize; i++)
+	for (unsigned int i = 1; i < containerSize; i++)
 	{
 		if (container[i] > max)
 		{
